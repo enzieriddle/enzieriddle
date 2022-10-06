@@ -11,7 +11,7 @@ export default function ProfileDescription() {
             <div className="profile-description">
                 <h1 className="mb-3">Hello, my name is Enzie!</h1>
                 <h2 className="lead">Enzie Riddle is a Web Developer from Wichita, Kansas. It is her goal to create the most elegant, intuitive websites she can, one line at a time. </h2>
-                <p>Her skills as a web developer include knowledge of HTML, CSS, and JavaScript. She is currently learning React in order to develop dynamic, useful applications. This site is a React application itself! Not only does she understand the importance of responsive design, she is always striving to learn different languages and write more beautiful applications each day.</p>
+                <p>Her skills as a web developer include knowledge of HTML, CSS, and JavaScript. She is currently learning React in order to develop dynamic, useful applications. This site is a React application itself <a href="https://github.com/enzieriddle/enzieriddle" rel="noreferrer" target="_blank">(GitHub link here)</a>! Not only does she understand the importance of responsive design, she is always striving to learn different languages and write more beautiful applications each day.</p>
                 <p>She is flexible, reliable, and has a passion for technology. For a copy of her resume, click the PDF icon below or visit her LinkedIn profile.</p>
             </div>
             <div className="row profile-socials align-items-center mt-5 mb-5">
