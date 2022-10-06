@@ -1,3 +1,37 @@
 .profile-socials img {
     max-width: 100%;
 }
+
+@media (min-width: 768px) {
+    .profile-socials {
+        max-width: 55%;
+        margin: 2em 0 0 0 !important;
+        align-items: start !important;
+    }
+
+    .profile-socials-col {
+        padding: 0 2em 0 0 !important;
+    }
+
+    .profile-socials img {
+        /* max-width: 50%; */
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-socials {
+        max-width: 40% !important;
+    }
+
+    .profile-description h2, 
+    .profile-description p {
+        line-height: 30px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .profile-socials {
+        max-width: 27% !important;
+    }
+}

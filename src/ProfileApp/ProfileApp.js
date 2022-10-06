@@ -4,12 +4,12 @@ import ProfileImage from "./components/ProfileImage";
 
 export default function ProfileApp() {
     return (
-        <div className="container profile-app-container mt-5">
+        <div className="container profile-app-container">
             <div className="row align-items-center">
-                <div className="col-lg-7">
+                <div className="col-md-7">
                     <ProfileDescription />
                 </div>
-                <div className="col-lg-5">
+                <div className="col-md-5">
                     <ProfileImage />
                 </div>
             </div>
