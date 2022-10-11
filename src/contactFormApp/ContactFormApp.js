@@ -17,7 +17,7 @@ export default function ContactFormApp() {
                     <Subject/>
                     <Content/>
                     <input name="spamcatcher" className="d-none" tabIndex="-1" autoComplete="off"></input>
-                    <button className="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Submit</button>
+                    <button className="g-recaptcha" data-sitekey="6LfUPXMiAAAAANC-Wth1ROV2ChQZyw3VMVHZtqXQ" data-callback='onSubmit' data-action='submit'>Submit</button>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
                 
