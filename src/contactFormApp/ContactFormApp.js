@@ -9,7 +9,10 @@ export default function ContactFormApp() {
         
         <div className="row">
             <div className="contact-form-app col-lg-6">
-                <form>
+                <form id="contact-form">
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"></input>
+                    <input type="hidden" name="action" value="validate_captcha"></input>
+                    
                     <div className="form-row">
                         <Name/>
                         <Email/>
@@ -17,7 +20,6 @@ export default function ContactFormApp() {
                     <Subject/>
                     <Content/>
                     <input name="spamcatcher" className="d-none" tabIndex="-1" autoComplete="off"></input>
-                    <button className="g-recaptcha" data-sitekey="6LfUPXMiAAAAANC-Wth1ROV2ChQZyw3VMVHZtqXQ" data-callback='onSubmit' data-action='submit'>Submit</button>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
                 
