@@ -6,7 +6,6 @@ import Resume from "./Resume.pdf";
 
 export default function ProfileDescription() {
     return(
-        
         <div className="container">
             <div className="profile-description">
                 <h1 className="mb-3">Hello, my name is Enzie!</h1>

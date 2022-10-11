@@ -2,6 +2,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import ProfileApp from "./ProfileApp/ProfileApp";
 import CalcApp from "./CalculatorApp/CalculatorApp";
 import "./index.css";
+import ContactFormApp from './contactFormApp/ContactFormApp';
 
 function App() {
   return (
@@ -11,10 +12,14 @@ function App() {
         <ProfileApp />
         <h2 className="text-center mt-5"><u>Projects</u></h2>
         <CalcApp />
+        <div className="d-none">
+          <ContactFormApp />
+        </div>
       </div>
       <div className="text-center mt-5 pt-5 pb-5 what-next bottom-banner">
         <p>What's she working on next? Enzie is currently building a contact form!</p>
         <p>Check back soon!</p>
+        
       </div>
     </div>
     
