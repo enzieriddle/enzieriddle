@@ -7,13 +7,6 @@ import { useRef } from 'react';
 
 export default function ContactFormApp() {
 
-    // useEffect(() => {
-    //     const form = document.getElementById("contact-form");
-    //     form.action = "mailto:enzie";
-    //     form.action+= "riddle@";
-    //     form.action+= "gmail.com";
-    // }, []);
-
     const form = useRef();
 
     const sendEmail = (e) => {

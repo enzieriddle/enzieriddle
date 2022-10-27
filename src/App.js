@@ -17,7 +17,7 @@ function App() {
         </div>
       </div>
       <div className="text-center mt-5 pt-5 pb-5 what-next bottom-banner">
-        <p>What's she working on next? Enzie is currently building a contact form!</p>
+        <p>What's she working on next? Enzie is currently working with APIs that will display different categories of YouTube videos.</p>
         <p>Check back soon!</p>
         
       </div>
