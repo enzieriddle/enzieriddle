@@ -34,7 +34,7 @@ export default function ContactFormApp() {
               console.log(result.text);
               console.log("SUCCESS!");
               e.target.reset();
-              form.innerHTML = "Your message was sent successfully. Enzie will respond as soon as she can!"
+              document.getElementById('contact-form-app').innerHTML = "<p>Your message was sent successfully. Enzie will respond as soon as she can!</p>"
           }, (error) => {
               console.log(error.text);
               console.log("FAILED...", error);
@@ -46,7 +46,7 @@ export default function ContactFormApp() {
 
       <div>
         <div className="row">
-            <div className="contact-form-app col-lg-6">
+            <div id="contact-form-app" className="contact-form-app col-lg-6">
                 <form id="contact-form" ref={form} onSubmit={sendEmail}>
                     <div className="form-row">
                         <div className="form-group col-lg-6">
