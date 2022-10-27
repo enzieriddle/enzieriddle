@@ -1,9 +1,6 @@
 import "./ContactFormApp.css";
-import { useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { useRef } from 'react';
-
-
 
 export default function ContactFormApp() {
 
@@ -68,6 +65,7 @@ export default function ContactFormApp() {
                 <p>This project is a form that sends an email to Enzie. It attempts to catch bots with a hidden input that will halt any form submissions that include text from this hidden input.</p>
                 <p>She used the EmailJS library to recieve emails, and stored the necessary keys in an .env file flagged to be ignored for security.</p> 
                 <p>After the form is submitted, it is replaced with a success message to prevent consecutive submissions.</p>
+                <p className="github-links"><a href="https://github.com/enzieriddle/enzieriddle/tree/main/src/contactFormApp" rel="noreferrer" target="_blank">Click here</a> to view code on Github.</p>
             </div>
         </div>
         </div>
