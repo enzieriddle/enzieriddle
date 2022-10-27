@@ -18,20 +18,26 @@ export default function ContactFormApp() {
 
     const sendEmail = (e) => {
       e.preventDefault();
-  
-      emailjs.sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID, 
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
-        form.current, 
-        process.env.REACT_APP_EMAILJS_USER_ID
-        )
-        .then((result) => {
-            console.log(result.text);
-            console.log("SUCCESS!");
-        }, (error) => {
-            console.log(error.text);
-            console.log("FAILED...", error);
-        });
+
+      const spamCatcher = document.getElementById("spam-catcher").innerHTML;
+
+      if (spamCatcher) {
+        console.log('Not today, bots!');
+      } else {
+        emailjs.sendForm(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
+          form.current, 
+          process.env.REACT_APP_EMAILJS_USER_ID
+          )
+          .then((result) => {
+              console.log(result.text);
+              console.log("SUCCESS!");
+          }, (error) => {
+              console.log(error.text);
+              console.log("FAILED...", error);
+          });
+      }
     };
 
     return (
@@ -59,7 +65,7 @@ export default function ContactFormApp() {
                         {/* <label for="contentInput">Content</label> */}
                         <textarea type="content" className="form-control" id="contentInput" name="message" aria-describedby="contentHelp" placeholder="How can Enzie help you?" required></textarea>
                     </div>
-                    <input name="email" className="d-none spam-catcher" tabIndex="-1" autoComplete="off"></input>
+                    <input name="email" id="spam-catcher" className="d-none" tabIndex="-1" autoComplete="off"></input>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
                 
