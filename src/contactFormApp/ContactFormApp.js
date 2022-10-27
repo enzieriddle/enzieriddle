@@ -34,7 +34,7 @@ export default function ContactFormApp() {
               console.log(result.text);
               console.log("SUCCESS!");
               e.target.reset();
-              document.getElementById('contact-form-app').innerHTML = '<div className="alert alert-success">Your message was sent successfully. Enzie will respond as soon as she can!</div>'
+              document.getElementById('contact-form-app').innerHTML = '<div class="alert alert-success">Your message was sent successfully. Enzie will respond as soon as she can!</div>'
           }, (error) => {
               console.log(error.text);
               console.log("FAILED...", error);
