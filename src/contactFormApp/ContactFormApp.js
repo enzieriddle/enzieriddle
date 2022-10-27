@@ -7,12 +7,12 @@ import { useRef } from 'react';
 
 export default function ContactFormApp() {
 
-    useEffect(() => {
-        const form = document.getElementById("contact-form");
-        form.action = "mailto:enzie";
-        form.action+= "riddle@";
-        form.action+= "gmail.com";
-    }, []);
+    // useEffect(() => {
+    //     const form = document.getElementById("contact-form");
+    //     form.action = "mailto:enzie";
+    //     form.action+= "riddle@";
+    //     form.action+= "gmail.com";
+    // }, []);
 
     const form = useRef();
 
@@ -64,7 +64,6 @@ export default function ContactFormApp() {
                         <input type="subject" className="form-control" id="subjectInput" aria-describedby="subjectHelp" required></input>
                     </div>
                     <div className="form-group">
-                        {/* <label for="contentInput">Content</label> */}
                         <textarea type="content" className="form-control" id="contentInput" name="message" aria-describedby="contentHelp" placeholder="How can Enzie help you?" required></textarea>
                     </div>
                     <input name="email" id="spam-catcher" className="d-none" tabIndex="-1" autoComplete="off"></input>
@@ -73,8 +72,9 @@ export default function ContactFormApp() {
                 
             </div>
             <div className="col-lg-6">
-                <p>This project is a form that sends an email to Enzie. It has __ components. It attempts to catch bots with a hidden input that will reject any form submissions that include text from this hidden input.</p>
+                <p>This project is a form that sends an email to Enzie. It attempts to catch bots with a hidden input that will halt any form submissions that include text from this hidden input.</p>
                 <p>She used the EmailJS library to recieve emails, and stored the necessary keys in an .env file flagged to be ignored for security.</p> 
+                <p>After the form is submitted, it is replaced with a success message to prevent consecutive submissions.</p>
             </div>
         </div>
         </div>
