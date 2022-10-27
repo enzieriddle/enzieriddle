@@ -1,11 +1,8 @@
-import Name from './components/Name';
-import Email from './components/Email';
-import Subject from './components/Subject';
-import Content from './components/Content';
 import "./ContactFormApp.css";
 import { useEffect } from 'react';
-import { useState } from "react";
-import { send } from 'emailjs-com';
+import emailjs from 'emailjs-com';
+import { useRef } from 'react';
+
 
 
 export default function ContactFormApp() {
@@ -17,48 +14,40 @@ export default function ContactFormApp() {
         form.action+= "gmail.com";
     }, []);
 
-    const [toSend, setToSend] = useState({
-        from_name: '',
-        to_name: '',
-        message: '',
-        reply_to: '',
-      });
-    
-      const onSubmit = (e) => {
-        e.preventDefault();
-        e.preventDefault();
-        send(
-          process.env.REACT_APP_EMAILJS_SERVICE_ID,
-          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-          toSend,
-          process.env.REACT_APP_EMAILJS_USER_ID
+    const form = useRef();
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
+        form.current, 
+        process.env.REACT_APP_EMAILJS_USER_ID
         )
-          .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
-          })
-          .catch((err) => {
-            console.log('FAILED...', err);
-          });
-      };
-    
-      const handleChange = (e) => {
-        setToSend({ ...toSend, [e.target.name]: e.target.value });
-      };
-    
+        .then((result) => {
+            console.log(result.text);
+            console.log("SUCCESS!");
+        }, (error) => {
+            console.log(error.text);
+            console.log("FAILED...", error);
+        });
+    };
 
     return (
-        
+
+      <div>
         <div className="row">
             <div className="contact-form-app col-lg-6">
-                <form id="contact-form" onSubmit={onSubmit}>
+                <form id="contact-form" ref={form} onSubmit={sendEmail}>
                     <div className="form-row">
                         <div className="form-group col-lg-6">
                         <label htmlFor="nameInput">Name</label>
-                        <input type="name" name="from_name" className="form-control" id="nameInput" value={toSend.from_name} onChange={handleChange} aria-describedby="nameHelp" required></input>
+                        <input type="name" name="from_name" className="form-control" id="nameInput" aria-describedby="nameHelp" required></input>
                     </div>
                     <div className="form-group col-lg-6">
                         <label htmlFor="emailInput">Email address</label>
-                        <input type="email" className="form-control" id="emailInput" name="reply_to" value={toSend.reply_to} onChange={handleChange} aria-describedby="emailHelp" required></input>
+                        <input type="email" className="form-control" id="emailInput" name="reply_to" aria-describedby="emailHelp" required></input>
                         <small id="emailHelp" className="form-text text-muted">Your email will never be shared with anyone else.</small>
                     </div>
                     </div>
@@ -68,7 +57,7 @@ export default function ContactFormApp() {
                     </div>
                     <div className="form-group">
                         {/* <label for="contentInput">Content</label> */}
-                        <textarea type="content" className="form-control" id="contentInput" name="message" value={toSend.message} onChange={handleChange} aria-describedby="contentHelp" placeholder="How can Enzie help you?" required></textarea>
+                        <textarea type="content" className="form-control" id="contentInput" name="message" aria-describedby="contentHelp" placeholder="How can Enzie help you?" required></textarea>
                     </div>
                     <input name="email" className="d-none spam-catcher" tabIndex="-1" autoComplete="off"></input>
                     <button type="submit" className="btn btn-primary">Submit</button>
@@ -79,6 +68,7 @@ export default function ContactFormApp() {
                 <p>This project is a form that sends an email to Enzie. It has __ components. It attempts to catch bots with a hidden input that will reject any form submissions that include text from this hidden input.</p>
                 <p>She used the EmailJS library to recieve emails, and stored the necessary keys in an .env file flagged to be ignored for security.</p> 
             </div>
+        </div>
         </div>
     );
 }

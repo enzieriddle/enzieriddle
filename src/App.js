@@ -12,7 +12,7 @@ function App() {
         <ProfileApp />
         <h2 className="text-center mt-5"><u>Projects</u></h2>
         <CalcApp />
-        <div className="d-none">
+        <div className="">
           <ContactFormApp />
         </div>
       </div>
