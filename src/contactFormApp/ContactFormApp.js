@@ -19,7 +19,7 @@ export default function ContactFormApp() {
     const sendEmail = (e) => {
       e.preventDefault();
 
-      const spamCatcher = document.getElementById("spam-catcher").innerHTML;
+      const spamCatcher = document.getElementById("spam-catcher").value;
 
       if (spamCatcher) {
         console.log('Not today, bots!');
@@ -33,6 +33,8 @@ export default function ContactFormApp() {
           .then((result) => {
               console.log(result.text);
               console.log("SUCCESS!");
+              e.target.reset();
+              form.innerHTML = "Your message was sent successfully. Enzie will respond as soon as she can!"
           }, (error) => {
               console.log(error.text);
               console.log("FAILED...", error);
